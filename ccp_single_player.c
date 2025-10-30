@@ -27,9 +27,10 @@ int main(){
 				randomNum3[m]=(rand()%(upper-lower+1))+lower;
 			}
 
+	    time(&start);
+
         for(attempt=1;attempt<=5;attempt++){
         printf("\nAttempt %d: " ,attempt);
-        time(&start);
 
         switch (level)
         {
@@ -176,4 +177,5 @@ int main(){
 
 
     return 0;
+
 }

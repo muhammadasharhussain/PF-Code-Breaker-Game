@@ -7,10 +7,11 @@ int main(){
 
     printf("Choose Mode:\n1.Single Player Mode\n2.Multiplayer Mode\n");
     scanf("%d",&mode);
+
 	switch(mode){
     case 1: {
         srand(time(0));
-        int i, j, k=0, z=0, attempt, score=115, level, lower=0, upper=9, y, l, m;
+        int i, j, k=0, z=0, attempt, score=115, level, lower=0, upper=9;
         time_t start, end;
         
         printf("\t==========WELCOME TO SINGLE PLAYER MODE============");
@@ -19,18 +20,23 @@ int main(){
 
         printf("\nChoose difficulty Level:\n1. Easy\n2. Medium\n3. Hard\n");
         scanf("%d", &level);
+
+		if(level != 1 || level !=2 || level != 3){
+        	printf("\nInvalid Option.");
+        	return 0;
+		}
         
         int randomNum1[3];
-            for(y=0;y<3;y++){
-				randomNum1[y]=(rand()%(upper-lower+1))+lower;
+            for(i=0;i<3;i++){
+				randomNum1[i]=(rand()%(upper-lower+1))+lower;
 			}
 		int randomNum2[4];
-            for(l=0;l<4;l++){
-				randomNum2[l]=(rand()%(upper-lower+1))+lower;
+            for(i=0;i<4;i++){
+				randomNum2[i]=(rand()%(upper-lower+1))+lower;
 			}
 		int randomNum3[5];
-            for(m=0;m<5;m++){
-				randomNum3[m]=(rand()%(upper-lower+1))+lower;
+            for(i=0;i<5;i++){
+				randomNum3[i]=(rand()%(upper-lower+1))+lower;
 			}
 
 	    time(&start);
@@ -47,7 +53,7 @@ int main(){
             z=0;
                 for(i=0;i<3;i++){
                         if(num[i]==randomNum1[i]){
-                            printf( " #");
+                            printf( " # ");
                             z++;
                             if(z==3)
                                 break;
@@ -68,7 +74,6 @@ int main(){
                 score-=15;
                 if(z==3){
                     break;
-                    break;
                     }
         break;
     }
@@ -81,7 +86,7 @@ int main(){
             z=0;
                 for(i=0;i<4;i++){
                         if(num[i]==randomNum2[i]){
-                            printf( " #");
+                            printf( " # ");
                             z++;
                             if(z==4)
                                 break;
@@ -102,7 +107,6 @@ int main(){
                 score-=15;
                 if(z==4){
                     break;
-                    break;
                     }
         break;
         }
@@ -115,7 +119,7 @@ int main(){
             z=0;
                 for(i=0;i<5;i++){
                         if(num[i]==randomNum3[i]){
-                            printf( " #");
+                            printf( " # ");
                             z++;
                             if(z==5)
                                 break;
@@ -136,13 +140,9 @@ int main(){
                 score-=15;
                 if(z==5){
                     break;
-                    break;
                     }
         break;   
     }
-    
-        default:
-            printf("Invalid Option.");
     }
     if (level == 1 && z == 3) break;
     else if (level == 2 && z == 4) break;
@@ -287,5 +287,4 @@ int main(){
     default:printf("Wrong option");
 }
     return 0;
-
 }
